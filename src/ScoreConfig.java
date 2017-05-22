@@ -1,6 +1,5 @@
-import javax.swing.BorderFactory;
 import javax.swing.*;
-import javax.swing.border.*;
+import scoreboard.panels.*;
 
 /* This configuration interface should prompt the user to enter
  * both player's tag, character, score, team (if they have one)
@@ -31,6 +30,10 @@ public class ScoreConfig extends JFrame {
 		configPlayers.add(playerOne);
 		Player playerTwo = new Player("Player 2");
 		configPlayers.add(playerTwo);
+		
+		// Tournament configuration panel
+		Tournament tournamentConfig = new Tournament();
+		configPlayers.add(tournamentConfig);
 		
 		// Adding update button to main panel
 		updateInfo = new JButton("Update");
