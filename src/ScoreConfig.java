@@ -2,15 +2,13 @@ import javax.swing.BorderFactory;
 import javax.swing.*;
 import javax.swing.border.*;
 
+/* This configuration interface should prompt the user to enter
+ * both player's tag, character, score, team (if they have one)
+ * and player color (RGBY) as per Melee's colors.
+ */
 
 public class ScoreConfig extends JFrame {
 	JPanel configPlayers;
-	JPanel player1Sect;
-	JPanel player2Sect;
-	JLabel player1;
-	JLabel player2;
-	JTextField player1Tag;
-	JTextField player2Tag;
 	JButton updateInfo;
 
 
@@ -19,35 +17,25 @@ public class ScoreConfig extends JFrame {
 	}
 
 	public ScoreConfig() {
+		/* JFrame settings */
 		super("Melee Scoreboard");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
-		this.setSize(640,480);
+		this.setSize(550,480);
 
-		Border player1PanelBorder = BorderFactory.createTitledBorder("Player 1");
-		Border player2PanelBorder = BorderFactory.createTitledBorder("Player 2");
+		/* Main panel */
 		configPlayers = new JPanel();
-		player1Sect = new JPanel();
-		player1Sect.setBorder(player1PanelBorder);
-		player2Sect = new JPanel();
-		player2Sect.setBorder(player2PanelBorder);
-		player1 = new JLabel("Tag:");
-		player1Sect.add(player1);
-		player1Tag = new JTextField(20);
-		player1Sect.add(player1Tag);
-		player2 = new JLabel("Tag:");
-		player2Sect.add(player2);
-		player2Tag = new JTextField(20);
-		player2Sect.add(player2Tag);
-
-		configPlayers.add(player1Sect);
-		configPlayers.add(player2Sect);
+		
+		// Adding player objects of superclass JPanel to the main panel
+		Player playerOne = new Player("Player 1");
+		configPlayers.add(playerOne);
+		Player playerTwo = new Player("Player 2");
+		configPlayers.add(playerTwo);
+		
+		// Adding update button to main panel
 		updateInfo = new JButton("Update");
 		configPlayers.add(updateInfo);
-
 		this.add(configPlayers);
-
-
 
 		this.setVisible(true);
 	}
